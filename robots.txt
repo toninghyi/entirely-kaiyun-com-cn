@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://toninghyi.github.io/entirely-kaiyun-com-cn/sitemap.xml

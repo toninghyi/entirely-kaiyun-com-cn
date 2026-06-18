@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>开云 · 稳定之页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f8f6f2;
+            font-family: "Georgia", "Noto Serif SC", "Source Han Serif SC", serif;
+            color: #2b2b2b;
+            line-height: 1.8;
+            font-weight: 400;
+            padding: 2rem 1.8rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 820px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* Hero 横幅 */
+        .hero {
+            border-bottom: 1px solid #d7d2c5;
+            padding-bottom: 2.8rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.4rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: #2f2a22;
+            margin-bottom: 0.6rem;
+            font-family: "Times New Roman", "Georgia", serif;
+            word-break: keep-all;
+        }
+
+        .hero .sub {
+            font-size: 0.95rem;
+            color: #6f685c;
+            letter-spacing: 1.2px;
+            border-top: 1px dashed #cfc9ba;
+            display: inline-block;
+            padding-top: 0.5rem;
+            margin-top: 0.2rem;
+        }
+
+        .hero .byline {
+            font-size: 0.85rem;
+            color: #8b8579;
+            margin-top: 1.2rem;
+            font-style: italic;
+        }
+
+        /* 背景说明 - 引用块 */
+        .background-note {
+            background: #efebe3;
+            padding: 1.8rem 2.2rem;
+            margin-bottom: 2.8rem;
+            border-left: 6px solid #b3aa98;
+            font-size: 1.05rem;
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        .background-note strong {
+            font-weight: 550;
+            color: #3a342b;
+        }
+
+        .background-note .quote-author {
+            display: block;
+            margin-top: 0.9rem;
+            font-size: 0.9rem;
+            color: #5f594b;
+            text-align: right;
+        }
+
+        /* 三段正文 */
+        .content-section {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-bottom: 2.8rem;
+        }
+
+        .article-block {
+            background: #fffffffa;
+            padding: 1.8rem 2.2rem;
+            border-radius: 16px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02), 0 0 0 1px #e9e3d9 inset;
+        }
+
+        .article-block h2 {
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: #3a342b;
+            margin-bottom: 0.9rem;
+            border-bottom: 1px solid #e2dace;
+            padding-bottom: 0.3rem;
+            letter-spacing: 0.5px;
+        }
+
+        .article-block p {
+            margin-bottom: 1.2rem;
+            text-indent: 2em;
+        }
+
+        .article-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-box {
+            background: #f4efe7;
+            padding: 1rem 1.6rem;
+            border-radius: 30px 8px 8px 30px;
+            margin: 1.2rem 0 0.6rem 0;
+            font-size: 0.98rem;
+            color: #3b352b;
+            border-left: 4px solid #b6ab95;
+        }
+
+        .highlight-box strong {
+            font-weight: 550;
+        }
+
+        .inset-link {
+            color: #7d6b4e;
+            text-decoration: none;
+            border-bottom: 1px dotted #b3a286;
+            transition: border 0.2s;
+        }
+
+        .inset-link:hover {
+            border-bottom: 2px solid #5f4f38;
+            color: #4a3f2f;
+        }
+
+        /* FAQ 摘要区域 (作为收束) */
+        .faq-mini {
+            background: #f3efe8;
+            padding: 1.6rem 2.2rem;
+            border-radius: 24px 8px 24px 8px;
+            margin-bottom: 2.2rem;
+        }
+
+        .faq-mini h3 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #3b342a;
+            margin-bottom: 0.8rem;
+            letter-spacing: 0.3px;
+        }
+
+        .faq-mini .qa-item {
+            margin-bottom: 0.7rem;
+        }
+
+        .faq-mini .qa-item .q {
+            font-weight: 550;
+            color: #4e4538;
+            display: inline;
+        }
+
+        .faq-mini .qa-item .a {
+            display: inline;
+            color: #3d3a34;
+        }
+
+        .faq-mini .qa-item .a i {
+            font-style: italic;
+            color: #60584a;
+        }
+
+        /* 页尾访问提示 */
+        .site-footer {
+            border-top: 1px solid #d7d0c2;
+            padding-top: 2rem;
+            margin-top: 0.5rem;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #5a5346;
+        }
+
+        .site-footer .direct-sentence {
+            background: #ece6db;
+            display: inline-block;
+            padding: 0.6rem 1.8rem;
+            border-radius: 40px;
+            letter-spacing: 0.6px;
+            font-size: 1.05rem;
+            box-shadow: 0 2px 3px rgba(0, 0, 0, 0.02);
+        }
+
+        .site-footer .direct-sentence a {
+            color: #4a3f30;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #a3947d;
+        }
+
+        .site-footer .direct-sentence a:hover {
+            border-bottom: 2px solid #4a3f30;
+        }
+
+        .site-footer .footnote {
+            margin-top: 1.6rem;
+            font-size: 0.8rem;
+            color: #8a8375;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body {
+                padding: 1.2rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .article-block {
+                padding: 1.3rem 1.4rem;
+            }
+
+            .background-note {
+                padding: 1.4rem 1.2rem;
+            }
+
+            .faq-mini {
+                padding: 1.2rem 1.4rem;
+            }
+
+            .highlight-box {
+                padding: 0.8rem 1rem;
+                border-radius: 20px 4px 4px 20px;
+            }
+
+            .site-footer .direct-sentence {
+                padding: 0.5rem 1.2rem;
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .sub {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- Hero 横幅 -->
+    <header class="hero">
+        <h1>开云</h1>
+        <div class="sub">一个稳定而安静的入口 · 杂志式浏览</div>
+        <div class="byline">—— 叙述 · 克制 · 自然</div>
+    </header>
+
+    <!-- 背景说明 引用块风格 -->
+    <div class="background-note">
+        <strong>关于这个页面</strong><br>
+        它并非一次喧哗的亮相，而更像一张折叠好的便签，放在桌角。你来到这里，可能是因为一个名字——<a href="https://www.entirely-kaiyun.com.cn" class="inset-link">开云</a>，它本身没有任何修饰，却慢慢生长出属于自己的叙述节奏。在这里，页面不是为了证明什么，而是为了提供一种持续的、稳定的存在。
+        <span class="quote-author">—— 一段简短的前言</span>
+    </div>
+
+    <!-- 三段自然介绍 -->
+    <div class="content-section">
+        <div class="article-block">
+            <h2>入口的安静质地</h2>
+            <p>很多时候，我们需要的并不是一个不断跳转的界面，而是一个能让自己安心阅读的段落。就像翻开一本旧杂志，你知道每一页的节奏都是经过斟酌的。</p>
+            <p>这个页面从设计之初就希望做到：让每一个句子都站在合适的位置，没有多余的装饰，也没有强制的动作。你随时可以离开，也随时可以返回。这种自由，恰恰是稳定的一部分。</p>
+            <div class="highlight-box">
+                <strong>稳定入口</strong> —— 不追逐瞬时的变化，只提供可以反复使用的路径。<a href="https://www.entirely-kaiyun.com.cn" class="inset-link">开云</a> 便是这样一条路径。
+            </div>
+        </div>
+
+        <div class="article-block">
+            <h2>陈述而非倡导</h2>
+            <p>页面里的每一个字都不是为了说服，而是为了呈现。就像在杂志专题中读到一篇关于某个名字的侧写，作者不急着下结论，只是把观察到的事实摆出来：关于功能的描述，关于界面存在的理由，关于使用场景中最朴素的那些片段。</p>
+            <p>你可以理解为一个安静的档案室，里面存放着一个站点的基本面貌。它没有夸耀，只有既定的结构和真诚的表达。当你需要查阅或回顾时，它就在那里。</p>
+            <p>正如你此刻正在阅读的这几行，不紧不慢，只是陈述。</p>
+        </div>
+
+        <div class="article-block">
+            <h2>场景与延续</h2>
+            <p>想象这样一个场景：你在午后打开浏览器，想找一个之前留意过的页面。你不确定它的具体地址，但你记得它的调子——不嘈杂，不催促。你顺着记忆里的名字找到了 <a href="https://www.entirely-kaiyun.com.cn" class="inset-link">开云</a>，页面加载完成，你看到的是熟悉的排版和克制的配色。</p>
+            <p>这就是我们希望达成的体验——不是一次性的邂逅，而是可以重复的、有温度的访问。页面会随着时间微调，但内核不会变：提供信息，尊重读者的节奏。</p>
+            <p>在数字世界里，这样的入口并不多见。我们愿意成为其中之一。</p>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要（简略，自然收束） -->
+    <div class="faq-mini">
+        <h3>常见疑问 · 简答</h3>
+        <div class="qa-item">
+            <span class="q">Q: 这个页面会频繁更新吗？</span>
+            <span class="a"> A: 不会。它更接近一个固定的说明页，内容会保持稳定，只在必要时做细微调整。</span>
+        </div>
+        <div class="qa-item">
+            <span class="q">Q: 访问 <a href="https://www.entirely-kaiyun.com.cn" class="inset-link">开云</a> 需要特殊条件吗？</span>
+            <span class="a"> A: 不需要。它使用常规的网络协议，任何现代浏览器均可正常打开。</span>
+        </div>
+        <div class="qa-item">
+            <span class="q">Q: 为什么读起来像杂志？</span>
+            <span class="a"> A: 因为我们认为，信息传递可以更从容。杂志式的排版能让人放慢速度，更好地吸收内容。</span>
+        </div>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <footer class="site-footer">
+        <div class="direct-sentence">
+            如果你想了解更多，可以直接前往 <a href="https://www.entirely-kaiyun.com.cn">开云</a> 阅读完整内容。
+        </div>
+        <div class="footnote">
+            页面设计 · 专题式叙述 · 米白基调
+        </div>
+    </footer>
+</div>
+</body>
+</html>
